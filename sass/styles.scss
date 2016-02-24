@@ -1,0 +1,304 @@
+/* ----------------------------------------------------- */
+/*                      Variables                        */
+/* ----------------------------------------------------- */
+$space: .85em;
+$formpadding: 2vw;
+
+/* ----------------------------------------------------- */
+/*                        Mixens                         */
+/* ----------------------------------------------------- */
+@mixin translate ($X, $Y) {
+    -webkit-transform: translate($X, $Y);
+    -ms-transform: translate($X, $Y);
+    transform: translate($X, $Y);
+}
+@mixin translate3d ($X, $Y, $Z) {
+    -webkit-transform: translate3d($X, $Y, $Z);
+    -ms-transform: translate3d($X, $Y, $Z);
+    transform: translate3d($X, $Y, $Z);
+}
+@mixin translateY ($percent) {
+    -webkit-transform: translateY($percent);
+    -ms-transform: translateY($percent);
+    transform: translateY($percent);
+}
+@mixin translateX ($percent) {
+    -webkit-transform: translateX($percent);
+    -ms-transform: translateX($percent);
+    transform: translateX($percent);
+}
+@mixin border-box(){
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+@mixin content-box(){
+    -ms-box-sizing:content-box;
+	-moz-box-sizing:content-box;
+	-webkit-box-sizing:content-box; 
+	box-sizing:content-box;
+}
+@mixin ease($time){
+    -webkit-transition: -webkit-transform $time ease;
+    -moz-transition: -moz-transform $time ease;
+    -ms-transition: -ms-transform $time ease;
+    -o-transition: -o-transform $time ease;
+    transition: transform $time ease;
+}
+@mixin box-shadow($p1, $p2, $p3, $p4, $color){
+    -webkit-box-shadow: $p1 $p2 $p3 $p4 $color;
+    -moz-box-shadow: $p1 $p2 $p3 $p4 $color;
+    box-shadow: $p1 $p2 $p3 $p4 $color;
+}
+@mixin box-shadow-inset($p1, $p2, $p3, $p4, $color){
+    -webkit-box-shadow: $p1 $p2 $p3 $p4 $color inset;
+    -moz-box-shadow: $p1 $p2 $p3 $p4 $color inset;
+    box-shadow: $p1 $p2 $p3 $p4 $color inset;
+}
+@mixin box-shadow-with-inset($p1, $p2, $p3, $color, $i1, $i2, $i3, $i4, $icolor){
+    -webkit-box-shadow: $p1 $p2 $p3 $color, $i1 $i2 $i3 $i4 $icolor inset;
+    -moz-box-shadow: $p1 $p2 $p3 $color, $i1 $i2 $i3 $i4 $icolor inset;
+    box-shadow: $p1 $p2 $p3 $color, $i1 $i2 $i3 $i4 $icolor inset;
+}
+
+@mixin scaleX($x){
+    transform: scaleX($x)
+}
+@mixin border-image($url, $radius, $p3, $p4){
+
+    -moz-border-image: $url $radius $p4;
+    -webkit-border-image: $url $radius $p4;
+    -o-border-image: $url $radius $p4;
+    border-image: $url $radius $p3 $p4;
+
+}
+@mixin animation($name, $duration, $fill-mode, $iteration, $timing, $delay, $state){
+    -webkit-animation-name: $name;
+    animation-name: $name;
+    -webkit-animation-duration: $duration;
+    animation-duration: $duration;
+    -webkit-animation-fill-mode: $fill-mode;
+    animation-fill-mode: $fill-mode;
+    animation-iteration-count: $iteration;
+    -webkit-animation-iteration-count: $iteration;
+    animation-timing-function: $timing;
+    -webkit-animation-timing-function: $timing;
+    animation-delay: $delay;
+    -webkit-animation-delay: $delay;
+    -webkit-animation-play-state: $state;
+    animation-play-state: $state;
+}
+
+@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white,  50%)) {
+  // For Google Chrome
+  ::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: $background-color;
+  }
+
+  // For Internet Explorer
+  body {
+    scrollbar-face-color: $foreground-color;
+    scrollbar-track-color: $background-color;
+  }
+}
+
+/* ----------------------------------------------------- */
+/*                      Margins                          */
+/* ----------------------------------------------------- */
+.margin-top-small { margin-top: $space;                   }
+.padding-top-small { padding-top: $space;                 }
+.padding-bot-small { padding-bottom: $space;              }
+.margin-small-em {	margin: 1em 0 1em 0;                  }
+.margin-bot-small {	margin: 0 0 2em 0;                    }
+.margin-bot-smallest {	margin: 0 0 1em 0;                }
+.margin-right-small { margin-right: 4vw;                  }
+
+.padding-left-small {
+	padding-left: .5em;
+    padding-right: .5em;
+    right: 0;
+    position: absolute;
+}
+
+.padding-small-lr {
+	padding-left: $formpadding;
+	padding-right: $formpadding;
+}
+
+/* ----------------------------------------------------- */
+/*                   Simple classes                      */
+/* ----------------------------------------------------- */
+.header-font    { font-family: Cabin;                      }
+.block          { display: block;                          }
+.relative       { position: relative;                      }
+.absolute       { position: absolute;                      }
+.max-height-100 { max-height: 100%;                        }
+.no-pointer     { pointer-events: none;                    }
+.caption        { font-size:.8em; width:100%;              }
+.align-center   { text-align:center;                       }
+.align-left     { text-align: left;                        }
+.align-right    { text-align: right;                       }
+.container      { padding: 1rem;                           }
+.fun-video      { width: 100%; max-width:630px;            }
+.clear          { clear:both;                              }
+.hidden         { display: none;                           }
+.low-padding    { padding: ($space)!important;             }
+.no-padding *   { padding: 0 !important;                   }
+.no-margin      { margin: 0 !important;                    }          
+.full-width     { width:100%!important;                    }
+.number-col     { width:10%; min-width: 5em;               }
+.community-col  { width:20%;                               }
+.inline-block   { display: inline-block !important;        }
+.transparent    { background-color: transparent !important;}
+.auto-width     { width:auto!important;                    }
+.indent         { margin-left: 2em !important;             }
+.scroll-y       { overflow-y: scroll;                      }
+.fontred        { color: red;                         }
+
+/* ----------------------------------------------------- */
+/*                 Centering   classes                   */
+/* ----------------------------------------------------- */
+.centerVertSpan {
+	display: inline-block;
+	height: 100%;
+	vertical-align: middle;
+}
+
+.center {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.centerHoriz {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* ----------------------------------------------------- */
+/*                   Font   classes                      */
+/* ----------------------------------------------------- */
+.font-regular {
+
+}
+
+.font-header {
+	font-size: 6vw;
+    font-weight: bold;
+}
+
+.header-small {
+	font-size: 1em;
+    font-weight: bold;
+}
+
+/* ----------------------------------------------------- */
+/*                   Page   classes                      */
+/* ----------------------------------------------------- */
+
+body {
+	background: url('../img/bg.jpg');
+}
+
+#wrapper {
+	@extend .relative, .centerHoriz;
+	width: 500px;
+}
+
+.userresults {
+	width: 1000px !important;
+}
+
+#wrapper h1 {
+	@extend .align-center;
+	color: #405c60
+}
+
+#wrapper input, select {
+	@include box-shadow-inset ( 0px, 1px, 4px, 0px, rgba(168, 168, 168, 0.6));
+	@include content-box();
+	width: 97%;
+	padding: 10px 5px 10px 5px;
+	border-radius: 5px;
+}
+
+#wrapper input[type="submit"] {
+	background-color: #405c60;
+	color: white;
+}
+#wrapper input[type="submit"]:hover {
+	background-color: #5B8287;
+}
+
+.error {
+	color: red;
+}
+
+#register, #usertable, #confirmation {
+	@include box-shadow-with-inset( 0px, 2px, 5px, rgba(105, 108, 109, 0.7), 0px, 0px, 8px, 5px, rgba(208, 223, 226, 0.4));
+
+	@extend .padding-small-lr;
+	background: rgb(247, 247, 247);
+	border-radius: 5px;
+	border: 1px solid rgba(147, 184, 189,0.8)
+}
+
+#users {
+    font-size: 16px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+}
+#users th {
+    padding-top: 11px;
+    padding-bottom: 11px;
+    background-color: #405c60;
+    color: white;
+}
+#users td, #users th {
+    border: 1px solid #ddd;
+    text-align: left;
+    padding: 8px;
+}
+#users tr:nth-child(even) {background-color: #f2f2f2}
+
+/* ----------------------------------------------------- */
+/*                   Data   Icons                        */
+/* ----------------------------------------------------- */
+
+#wrapper label {
+	color: rgb(64, 92, 96);
+	position: relative;
+}
+.dataicon {
+	padding: 10px 5px 10px 30px !important;
+	width: 92% !important;
+}
+
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?iqsd9');
+    src:    url('../fonts/icomoon.eot?iqsd9#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?iqsd9') format('truetype'),
+        url('../fonts/icomoon.woff?iqsd9') format('woff'),
+        url('../fonts/icomoon.svg?iqsd9#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[data-icon]:after {
+	font-family: 'icomoon';
+	content: attr(data-icon);
+	position: absolute;
+	color: rgb(106, 159, 171);
+	left: 10px;
+	top: 30px;
+	-webkit-font-smoothing: antialiased;
+}

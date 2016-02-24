@@ -1,0 +1,128 @@
+<!DOCTYPE HTML>
+<html class="no-js" lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<head>
+		<title>User Registration</title>
+		
+		<!-- CSS -->
+        <link rel="stylesheet" href="css/styles.css" />
+		
+		<!-- Library Pre-render -->
+		<script src="js/jquery-1.9.1.min.js?v=2"></script>
+		<script src="js/helloworldapp.js"></script>
+	</head>
+<body>
+	<div id="wrapper">
+		<div class="animate form">
+			<form id="register" autocomplete="on" method="post" action="php/register.php">
+				<h1> Register</h1> 
+				<p> 
+					<!-- First Name -->
+					<label for="firstname" class="" data-icon="&#xe904">First Name</label>
+					<input id="firstname" class="dataicon" name="fname" type="text" placeholder="John" required pattern="[a-zA-Z]{3,}" maxlength="50" title="Must be 3-50 alpha characters."/>
+				</p>
+				<p> 
+					<!-- Last Name -->
+					<label for="lastname" class="" data-icon="&#xe904">Last Name</label>
+					<input id="lastname" class="dataicon" name="lname" type="text" placeholder="Doe" required pattern="[a-zA-Z]{3,}" maxlength="50" title="Must be 3-50 alpha characters."/>
+				</p>
+				<p> 
+					<!-- Address One -->
+					<label for="address1" class="" data-icon="&#xe900" >Street Address</label>
+					<input id="address1" class="dataicon" name="address1" type="text" placeholder="123 Main St" required pattern="[-.a-zA-Z0-9\x20]{5,}" maxlength="100" title="Must be 5-100 alphanumeric characters (including . and -)."/> 
+				</p>
+				<p> 
+					<!-- Address Two -->
+					<label for="address2" class="" >Street Address 2</label>
+					<input id="address2" name="address2" type="text" placeholder="" pattern="[-.a-zA-Z0-9\x20]{1,}" maxlength="100" title="Must be 0-100 alphanumeric characters (including . and -)."/> 
+				</p>
+				<p> 
+					<!-- City -->
+					<label for="city" class="" data-icon="&#xe901" >City</label>
+					<input id="city" class="dataicon" name="city" type="text" placeholder="Anytown" required pattern="[a-zA-Z]{3,}" maxlength="30" title="Must be 3-30 alpha characters."/> 
+				</p>
+				<p> 
+					<!-- Zipcode -->
+					<label for="zipcode" class="" data-icon="&#xe903" >Zipcode</label>
+					<input id="zipcode"  class="dataicon" name="zip" type="text" placeholder="13245" required pattern="(\d{5}([\-]\d{4})?)" maxlength="10" title="Must be a XXXXX or XXXXX-XXXX zipcode."/> 
+				</p>
+				<p> 
+					<!-- State -->
+					<label for="state" class="">State</label>
+					<select id="state" name="state" required>
+						<option selected disabled hidden value=''></option>
+						<option value="AL">AL - Alabama</option>
+						<option value="AK">AK - Alaska</option>
+						<option value="AZ">AZ - Arizona</option>
+						<option value="AR">AR - Arkansas</option>
+						<option value="CA">CA - California</option>
+						<option value="CO">CO - Colorado</option>
+						<option value="CT">CT - Connecticut</option>
+						<option value="DE">DE - Delaware</option>
+						<option value="DC">DC - District Of Columbia</option>
+						<option value="FL">FL - Florida</option>
+						<option value="GA">GA - Georgia</option>
+						<option value="HI">HI - Hawaii</option>
+						<option value="ID">ID - Idaho</option>
+						<option value="IL">IL - Illinois</option>
+						<option value="IN">IN - Indiana</option>
+						<option value="IA">IA - Iowa</option>
+						<option value="KS">KS - Kansas</option>
+						<option value="KY">KY - Kentucky</option>
+						<option value="LA">LA - Louisiana</option>
+						<option value="ME">ME - Maine</option>
+						<option value="MD">MD - Maryland</option>
+						<option value="MA">MA - Massachusetts</option>
+						<option value="MI">MI - Michigan</option>
+						<option value="MN">MN - Minnesota</option>
+						<option value="MS">MS - Mississippi</option>
+						<option value="MO">MO - Missouri</option>
+						<option value="MT">MT - Montana</option>
+						<option value="NE">NE - Nebraska</option>
+						<option value="NV">NV - Nevada</option>
+						<option value="NH">NH - New Hampshire</option>
+						<option value="NJ">NJ - New Jersey</option>
+						<option value="NM">NM - New Mexico</option>
+						<option value="NY">NY - New York</option>
+						<option value="NC">NC - North Carolina</option>
+						<option value="ND">ND - North Dakota</option>
+						<option value="OH">OH - Ohio</option>
+						<option value="OK">OK - Oklahoma</option>
+						<option value="OR">OR - Oregon</option>
+						<option value="PA">PA - Pennsylvania</option>
+						<option value="RI">RI - Rhode Island</option>
+						<option value="SC">SC - South Carolina</option>
+						<option value="SD">SD - South Dakota</option>
+						<option value="TN">TN - Tennessee</option>
+						<option value="TX">TX - Texas</option>
+						<option value="UT">UT - Utah</option>
+						<option value="VT">VT - Vermont</option>
+						<option value="VA">VA - Virginia</option>
+						<option value="WA">WA - Washington</option>
+						<option value="WV">WV - West Virginia</option>
+						<option value="WI">WI - Wisconsin</option>
+						<option value="WY">WY - Wyoming</option>
+					</select>
+				</p>
+				<p> 
+					<!-- Country -->
+					<label for="country" class="" data-icon="&#xe905" >Country</label>
+					<input id="country" class="dataicon" name="country" type="text" placeholder="US" required pattern="^US$" title="Can only be US"/> 
+				</p>
+				<p class="signin button"> 
+					<input type="submit" id="submit" value="Sign up"/> 
+				</p>
+				
+				<p id="errors">
+				
+				</p>
+			</form>
+		</div>
+	</div>	
+</body>
+	<script>
+		<!-- Call JS to override form submit -->
+		$(document).ready(SetupFormSubmit);
+	</script>
+</html>
